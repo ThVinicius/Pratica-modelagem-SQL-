@@ -18,7 +18,7 @@ CREATE TABLE products (
 	size TEXT NOT NULL
 );
 
-CREATE TABLE photos (
+CREATE TABLE "productsPhotos" (
 	id SERIAL NOT NULL PRIMARY KEY,
 	"productId" serial NOT NULL REFERENCES products (id),
 	photo TEXT NOT NULL,
@@ -41,7 +41,7 @@ CREATE TABLE "customerAddresses" (
 	number integer NOT NULL,
 	district TEXT NOT NULL,
 	complement TEXT NOT NULL,
-	"stateId" INTEGER NOT NULL REFERENCES states (id)
+	"stateId" INTEGER NOT NULL REFERENCES states (id),
 	"cityId" integer NOT NULL REFERENCES cities (id),
 	"postalCode" TEXT NOT NULL,
 	"customerId" integer NOT NULL REFERENCES customers(id)
