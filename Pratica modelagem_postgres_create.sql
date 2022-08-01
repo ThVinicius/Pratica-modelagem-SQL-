@@ -25,6 +25,11 @@ CREATE TABLE photos (
 	"categoryId" integer NOT NULL REFERENCES categories (id)
 );
 
+CREATE TABLE states (
+	id SERIAL NOT NULL PRIMARY KEY,
+	name TEXT NOT NULL UNIQUE
+);
+
 CREATE TABLE cities (
 	id SERIAL NOT NULL PRIMARY KEY,
 	name TEXT NOT NULL UNIQUE
@@ -36,6 +41,7 @@ CREATE TABLE "customerAddresses" (
 	number integer NOT NULL,
 	district TEXT NOT NULL,
 	complement TEXT NOT NULL,
+	"stateId" INTEGER NOT NULL REFERENCES states (id)
 	"cityId" integer NOT NULL REFERENCES cities (id),
 	"postalCode" TEXT NOT NULL,
 	"customerId" integer NOT NULL REFERENCES customers(id)
